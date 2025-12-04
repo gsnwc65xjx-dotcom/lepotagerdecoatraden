@@ -1,0 +1,112 @@
+{
+    "hero": {
+        "title": "Des légumes frais,<br>du champ à l'assiette",
+        "subtitle": "Découvrez le goût authentique de nos produits cultivés avec passion à Coat Raden.",
+        "cta_primary": "Nos Paniers",
+        "cta_secondary": "Notre Histoire"
+    },
+    "about": {
+        "title": "Une passion pour la terre",
+        "text_1": "Au cœur de la Bretagne, le Potager de Coat Raden cultive la tradition du goût. Nous nous engageons à produire des légumes sains, respectueux de l'environnement et des saisons.",
+        "text_2": "Chaque jour, nous prenons soin de nos cultures pour vous offrir le meilleur de la nature, directement dans votre panier.",
+        "features": [
+            "Agriculture raisonnée",
+            "Variétés anciennes",
+            "Circuit court"
+        ]
+    },
+    "products": {
+        "title": "La Fraîcheur au Rendez-vous",
+        "subtitle": "Nos produits varient au fil des saisons pour garantir une qualité et un goût exceptionnels.",
+        "items": [
+            {
+                "title": "Le Panier de la Semaine",
+                "description": "Une sélection surprise de nos meilleurs légumes du moment. Idéal pour une famille.",
+                "price": "Dès 15€",
+                "icon": "fas fa-shopping-basket"
+            },
+            {
+                "title": "Vente Directe",
+                "description": "Venez choisir vos produits directement à la ferme. Rencontrez-nous et visitez le potager.",
+                "price": "Au poids",
+                "icon": "fas fa-apple-alt"
+            },
+            {
+                "title": "Commandes",
+                "description": "Réservez vos produits en ligne et venez les récupérer sans attente.",
+                "price": "Click & Collect",
+                "icon": "fas fa-truck"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Venez nous voir",
+        "subtitle": "Nous serons ravis de vous accueillir à la ferme.",
+        "address": "Le Potager de Coat Raden<br>29000 Quimper (Exemple)",
+        "hours": "Mercredi : 14h - 18h<br>Samedi : 9h - 13h",
+        "phone": "06 00 00 00 00"
+    },
+    "baskets": {
+        "title": "Nos Paniers Bio",
+        "subtitle": "Chaque semaine, découvrez une sélection de légumes de saison.",
+        "items": [
+            {
+                "title": "Panier Simple",
+                "price": "14€",
+                "description": "Idéal pour 2 à 4 personnes. Une base variée de légumes de saison.",
+                "features": [
+                    "5-6 variétés de légumes",
+                    "Recettes incluses",
+                    "Sans engagement"
+                ]
+            },
+            {
+                "title": "Panier Famille",
+                "price": "19€",
+                "description": "Pour 4 personnes et plus. De quoi cuisiner toute la semaine !",
+                "features": [
+                    "7-8 variétés de légumes",
+                    "Quantités généreuses",
+                    "Surprises du chef"
+                ]
+            }
+        ]
+    },
+    "recipes": {
+        "title": "Nos Idées Recettes",
+        "subtitle": "Cuisinez nos légumes avec simplicité et gourmandise.",
+        "items": [
+            {
+                "title": "Crumble de légumes d'été",
+                "time": "40 min",
+                "image": "assets/images/basket.png"
+            },
+            {
+                "title": "Salade de tomates anciennes",
+                "time": "15 min",
+                "image": "assets/images/basket.png"
+            },
+            {
+                "title": "Velouté de potimarron",
+                "time": "30 min",
+                "image": "assets/images/basket.png"
+            }
+        ]
+    },
+    "blog": {
+        "title": "La Vie à la Ferme",
+        "subtitle": "Suivez le quotidien de nos cultures et de notre équipe.",
+        "items": [
+            {
+                "title": "Les premières tomates arrivent !",
+                "date": "12 Juin 2024",
+                "excerpt": "Le soleil a fait son œuvre, les premières Coeur de Boeuf sont rouges..."
+            },
+            {
+                "title": "Préparation des sols d'hiver",
+                "date": "15 Octobre 2023",
+                "excerpt": "L'automne s'installe, il est temps de pailler et de protéger la terre..."
+            }
+        ]
+    }
+}

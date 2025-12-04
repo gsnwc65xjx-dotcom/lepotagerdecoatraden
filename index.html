@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Potager de Coat Raden - Légumes de Saison</title>
+    <meta name="description"
+        content="Ferme maraîchère locale proposant des légumes de saison et des paniers frais à Coat Raden.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Le Potager <span class="accent">de Coat Raden</span></a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#baskets">Paniers</a></li>
+                <li><a href="#recipes">Recettes</a></li>
+                <li><a href="#blog">La Ferme</a></li>
+                <li><a href="#contact" class="btn-primary">Nous Trouver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Des légumes frais,<br>du champ à l'assiette</h1>
+            <p>Découvrez le goût authentique de nos produits cultivés avec passion à Coat Raden.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Nos Paniers</a>
+                <a href="#about" class="btn-secondary">Notre Histoire</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container about-grid">
+            <div class="about-text">
+                <span class="subtitle">Notre Histoire</span>
+                <h2>Une passion pour la terre</h2>
+                <p>Au cœur de la Bretagne, le Potager de Coat Raden cultive la tradition du goût. Nous nous engageons à
+                    produire des légumes sains, respectueux de l'environnement et des saisons.</p>
+                <p>Chaque jour, nous prenons soin de nos cultures pour vous offrir le meilleur de la nature, directement
+                    dans votre panier.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-leaf"></i> Agriculture raisonnée</li>
+                    <li><i class="fas fa-carrot"></i> Variétés anciennes</li>
+                    <li><i class="fas fa-heart"></i> Circuit court</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/basket.png" alt="Panier de légumes frais">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section products-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Nos Récoltes</span>
+                <h2>La Fraîcheur au Rendez-vous</h2>
+                <p>Nos produits varient au fil des saisons pour garantir une qualité et un goût exceptionnels.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="card-icon"><i class="fas fa-shopping-basket"></i></div>
+                    <h3>Le Panier de la Semaine</h3>
+                    <p>Une sélection surprise de nos meilleurs légumes du moment. Idéal pour une famille.</p>
+                    <span class="price">Dès 15€</span>
+                </div>
+                <div class="product-card">
+                    <div class="card-icon"><i class="fas fa-apple-alt"></i></div>
+                    <h3>Vente Directe</h3>
+                    <p>Venez choisir vos produits directement à la ferme. Rencontrez-nous et visitez le potager.</p>
+                    <span class="price">Au poids</span>
+                </div>
+                <div class="product-card">
+                    <div class="card-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Commandes</h3>
+                    <p>Réservez vos produits en ligne et venez les récupérer sans attente.</p>
+                    <span class="price">Click & Collect</span>
+                </div>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Baskets Section -->
+    <section id="baskets" class="section baskets-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Abonnements</span>
+                <h2 id="baskets-title">Nos Paniers Bio</h2>
+                <p id="baskets-subtitle">Chaque semaine, découvrez une sélection de légumes de saison.</p>
+            </div>
+            <div class="baskets-grid" id="baskets-grid">
+                <!-- Baskets injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="recipes" class="section recipes-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Cuisine</span>
+                <h2 id="recipes-title">Nos Idées Recettes</h2>
+                <p id="recipes-subtitle">Cuisinez nos légumes avec simplicité et gourmandise.</p>
+            </div>
+            <div class="recipes-grid" id="recipes-grid">
+                <!-- Recipes injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Facebook Section -->
+    <section id="blog" class="section facebook-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Réseaux Sociaux</span>
+                <h2 id="blog-title">La Vie à la Ferme</h2>
+                <p id="blog-subtitle">Suivez notre actualité en direct sur Facebook.</p>
+            </div>
+
+            <div class="facebook-banner-wrapper">
+                <div class="facebook-marquee">
+                    <div class="marquee-content">
+                        <!-- Repeated items for continuous scroll -->
+                        <div class="fb-item">
+                            <i class="fab fa-facebook"></i>
+                            <span>Découvrez nos dernières récoltes</span>
+                        </div>
+                        <div class="fb-item">
+                            <i class="fas fa-camera"></i>
+                            <span>Photos de la ferme</span>
+                        </div>
+                        <div class="fb-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Événements à venir</span>
+                        </div>
+                        <div class="fb-item">
+                            <i class="fas fa-carrot"></i>
+                            <span>Légumes de saison</span>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="fb-item">
+                            <i class="fab fa-facebook"></i>
+                            <span>Découvrez nos dernières récoltes</span>
+                        </div>
+                        <div class="fb-item">
+                            <i class="fas fa-camera"></i>
+                            <span>Photos de la ferme</span>
+                        </div>
+                        <div class="fb-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Événements à venir</span>
+                        </div>
+                        <div class="fb-item">
+                            <i class="fas fa-carrot"></i>
+                            <span>Légumes de saison</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://www.facebook.com/lepotagerdecoatraden/?locale=fr_FR" target="_blank"
+                    class="btn-primary fb-cta">
+                    Voir les publications sur Facebook <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <span class="subtitle">Contact</span>
+                <h2>Venez nous voir</h2>
+                <p>Nous serons ravis de vous accueillir à la ferme.</p>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Le Potager de Coat Raden<br>22740 Lézardrieux, France</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>Mercredi : 17h30 - 19h00<br>Vendredi : 16h00 - 19h00</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p id="contact-email">lepotagerdecoatraden@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p id="contact-phone">+33 6 32 49 21 78</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe width="100%" height="100%" frameborder="0" style="border:0; min-height: 400px;"
+                    src="https://maps.google.com/maps?q=Le%20Potager%20de%20Coat%20Raden%2C%20L%C3%A9zardrieux&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h3>Le Potager</h3>
+                <p>Cultivé avec amour en Bretagne.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Accueil</a>
+                <a href="#about">À Propos</a>
+                <a href="#products">Produits</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Le Potager de Coat Raden. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/content.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
