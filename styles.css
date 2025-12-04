@@ -118,45 +118,25 @@ img {
     color: var(--text-dark);
 }
 
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: var(--shadow-sm);
-    padding: 15px 0;
-    transition: var(--transition);
-}
-
-.navbar.scrolled {
+/* Header & Navigation */
+.main-nav {
+    background-color: #FFFFFF;
+    /* Pure White */
     padding: 10px 0;
-    box-shadow: var(--shadow-md);
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Center everything */
     align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    transition: var(--transition);
-}
-
-.navbar.scrolled .logo img {
-    height: 60px;
+    position: relative;
+    height: 110px;
+    /* Increased height for larger logo */
 }
 
 .nav-links {
@@ -165,31 +145,158 @@ img {
     align-items: center;
 }
 
+.nav-links li {
+    text-align: center;
+}
+
 .nav-links a {
-    font-weight: 500;
     color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
 }
 
-.nav-links .btn-primary {
-    padding: 10px 25px;
-    color: var(--text-light);
+.nav-links a:hover::after {
+    width: 100%;
 }
 
-.nav-links .btn-primary:hover {
-    color: var(--primary-color);
+.logo-container {
+    /* Position absolute removed to sit in flow */
+    margin: 0 40px;
+    /* Spacing around logo */
+    z-index: 1001;
 }
+
+.main-logo {
+    height: 100px;
+    /* Larger logo */
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+    /* Keep oval shape */
+    object-fit: cover;
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Spacer margins removed as logo is now in flow */
+.nav-links.left-links {
+    margin-right: 0;
+}
+
+.nav-links.right-links {
+    margin-left: 0;
+}
+
+
 
 .mobile-menu-btn {
     display: none;
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--text-dark);
     cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Responsive Header */
+@media (max-width: 1100px) {
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links.left-links {
+        margin-right: 60px;
+    }
+
+    .nav-links.right-links {
+        margin-left: 60px;
+    }
+
+    .main-logo {
+        height: 100px;
+    }
+
+    .logo-container {
+        top: -15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-nav {
+        padding: 10px 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1002;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide desktop nav */
+    }
+
+    .logo-container {
+        position: static;
+        transform: none;
+        padding: 0;
+        background: none;
+    }
+
+    .main-logo {
+        height: 50px;
+    }
+
+    .nav-container {
+        height: auto;
+    }
+
+    /* Mobile Menu Styles */
+    .nav-container.active .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--gray-light);
+    }
+
+    .nav-links.left-links,
+    .nav-links.right-links {
+        margin: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
 }
 
 /* Hero Section */

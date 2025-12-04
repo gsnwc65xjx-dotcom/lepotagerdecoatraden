@@ -59,6 +59,18 @@ function renderEditor(data) {
         bindInputs(body, key);
     };
 
+    // --- Global Settings ---
+    createSection('global', 'Paramètres Généraux (SEO)', `
+        <div class="form-group">
+            <label>Titre du Site (Onglet Navigateur)</label>
+            <input type="text" data-path="global.siteTitle" value="${escapeHtml(data.global ? data.global.siteTitle : '')}">
+        </div>
+        <div class="form-group">
+            <label>Description (Meta Description)</label>
+            <textarea data-path="global.metaDescription">${escapeHtml(data.global ? data.global.metaDescription : '')}</textarea>
+        </div>
+    `);
+
     // --- Hero ---
     createSection('hero', 'Accueil (Hero)', `
         <div class="form-group">
@@ -68,6 +80,171 @@ function renderEditor(data) {
         <div class="form-group">
             <label>Sous-titre</label>
             <textarea data-path="hero.subtitle">${escapeHtml(data.hero.subtitle)}</textarea>
+        </div>
+    `);
+
+    // --- About ---
+    let aboutFeaturesHtml = '';
+    if (data.about.features) {
+        data.about.features.forEach((feature, index) => {
+            aboutFeaturesHtml += `
+                <div class="form-group" style="display: flex; gap: 10px; align-items: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <i class="fas fa-chevron-up" style="cursor: pointer; color: #888;" onclick="moveItem('about.features', ${index}, -1)"></i>
+                        <i class="fas fa-chevron-down" style="cursor: pointer; color: #888;" onclick="moveItem('about.features', ${index}, 1)"></i>
+                    </div>
+                    <input type="text" data-path="about.features.${index}" value="${escapeHtml(feature)}">
+                    <span class="btn-remove" onclick="removeItem('about.features', ${index})"><i class="fas fa-trash"></i></span>
+                </div>
+            `;
+        });
+        aboutFeaturesHtml += `<button class="btn btn-add" onclick="addItem('about.features')"><i class="fas fa-plus"></i> Ajouter un point fort</button>`;
+    }
+
+    createSection('about', 'À Propos', `
+        <div class="form-group">
+            <label>Titre</label>
+            <input type="text" data-path="about.title" value="${escapeHtml(data.about.title)}">
+        </div>
+        <div class="form-group">
+            <label>Paragraphe 1</label>
+            <textarea data-path="about.text_1">${escapeHtml(data.about.text_1)}</textarea>
+        </div>
+        <div class="form-group">
+            <label>Paragraphe 2</label>
+            <textarea data-path="about.text_2">${escapeHtml(data.about.text_2)}</textarea>
+        </div>
+        <div class="form-group">
+            <label>Points Forts</label>
+            <div style="background: #f9f9f9; padding: 10px; border-radius: 4px;">
+                ${aboutFeaturesHtml}
+            </div>
+        </div>
+    `);
+
+    // --- Products ---
+    let productsHtml = '';
+    if (data.products && data.products.items) {
+        data.products.items.forEach((item, index) => {
+            productsHtml += `
+                <div class="item-card">
+                    <div class="item-header">
+                        <span>Produit ${index + 1}</span>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <i class="fas fa-chevron-up" style="cursor: pointer; color: #888;" onclick="moveItem('products.items', ${index}, -1)"></i>
+                            <i class="fas fa-chevron-down" style="cursor: pointer; color: #888;" onclick="moveItem('products.items', ${index}, 1)"></i>
+                            <span class="btn-remove" onclick="removeItem('products.items', ${index})"><i class="fas fa-trash"></i> Supprimer</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" data-path="products.items.${index}.title" value="${escapeHtml(item.title)}">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea data-path="products.items.${index}.description">${escapeHtml(item.description)}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Prix</label>
+                        <input type="text" data-path="products.items.${index}.price" value="${escapeHtml(item.price)}">
+                    </div>
+                    <div class="form-group">
+                        <label>Icône (FontAwesome)</label>
+                        <input type="text" data-path="products.items.${index}.icon" value="${escapeHtml(item.icon)}">
+                    </div>
+                </div>
+            `;
+        });
+        productsHtml += `<button class="btn btn-add" onclick="addItem('products.items')"><i class="fas fa-plus"></i> Ajouter un produit</button>`;
+    }
+
+    createSection('products', 'Produits', `
+        <div class="form-group">
+            <label>Titre</label>
+            <input type="text" data-path="products.title" value="${escapeHtml(data.products.title)}">
+        </div>
+        <div class="form-group">
+            <label>Sous-titre</label>
+            <textarea data-path="products.subtitle">${escapeHtml(data.products.subtitle)}</textarea>
+        </div>
+        ${productsHtml}
+    `);
+
+    // --- Baskets ---
+    let basketsHtml = '';
+    data.baskets.items.forEach((item, index) => {
+        basketsHtml += `
+            <div class="item-card">
+                <div class="item-header">
+                    <span>Panier ${index + 1}</span>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <i class="fas fa-chevron-up" style="cursor: pointer; color: #888;" onclick="moveItem('baskets.items', ${index}, -1)"></i>
+                        <i class="fas fa-chevron-down" style="cursor: pointer; color: #888;" onclick="moveItem('baskets.items', ${index}, 1)"></i>
+                        <span class="btn-remove" onclick="removeItem('baskets.items', ${index})"><i class="fas fa-trash"></i> Supprimer</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" data-path="baskets.items.${index}.title" value="${escapeHtml(item.title)}">
+                </div>
+                <div class="form-group">
+                    <label>Prix</label>
+                    <input type="text" data-path="baskets.items.${index}.price" value="${escapeHtml(item.price)}">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea data-path="baskets.items.${index}.description">${escapeHtml(item.description)}</textarea>
+                </div>
+            </div>
+        `;
+    });
+    basketsHtml += `<button class="btn btn-add" onclick="addItem('baskets.items')"><i class="fas fa-plus"></i> Ajouter un panier</button>`;
+    createSection('baskets', 'Paniers', basketsHtml);
+
+    // --- Recipes (With Images) ---
+    let recipesHtml = '';
+    data.recipes.items.forEach((item, index) => {
+        recipesHtml += `
+            <div class="item-card">
+                <div class="item-header">
+                    <span>Recette ${index + 1}</span>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <i class="fas fa-chevron-up" style="cursor: pointer; color: #888;" onclick="moveItem('recipes.items', ${index}, -1)"></i>
+                        <i class="fas fa-chevron-down" style="cursor: pointer; color: #888;" onclick="moveItem('recipes.items', ${index}, 1)"></i>
+                        <span class="btn-remove" onclick="removeItem('recipes.items', ${index})"><i class="fas fa-trash"></i> Supprimer</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Titre</label>
+                    <input type="text" data-path="recipes.items.${index}.title" value="${escapeHtml(item.title)}">
+                </div>
+                <div class="form-group">
+                    <label>Temps</label>
+                    <input type="text" data-path="recipes.items.${index}.time" value="${escapeHtml(item.time)}">
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <div class="image-preview" onclick="triggerFileSelect('recipes.items.${index}.image')">
+                        <img src="${item.image}" id="img-preview-recipes.items.${index}.image">
+                        <span style="${item.image ? 'display:none' : ''}">Cliquez pour changer</span>
+                    </div>
+                    <input type="file" id="file-recipes.items.${index}.image" accept="image/*" onchange="handleImageUpload(this, 'recipes.items.${index}.image')">
+                </div>
+            </div>
+        `;
+    });
+    recipesHtml += `<button class="btn btn-add" onclick="addItem('recipes.items')"><i class="fas fa-plus"></i> Ajouter une recette</button>`;
+    createSection('recipes', 'Recettes', recipesHtml);
+
+    // --- Social ---
+    createSection('social', 'Réseaux Sociaux', `
+        <div class="form-group">
+            <label>Titre</label>
+            <input type="text" data-path="social.title" value="${escapeHtml(data.social ? data.social.title : '')}">
+        </div>
+        <div class="form-group">
+            <label>Sous-titre</label>
+            <textarea data-path="social.subtitle">${escapeHtml(data.social ? data.social.subtitle : '')}</textarea>
         </div>
     `);
 
@@ -98,66 +275,6 @@ function renderEditor(data) {
             <input type="text" data-path="contact.email" value="${escapeHtml(data.contact.email)}">
         </div>
     `);
-
-    // --- Baskets ---
-    let basketsHtml = '';
-    data.baskets.items.forEach((item, index) => {
-        basketsHtml += `
-            <div class="item-card">
-                <div class="item-header">
-                    <span>Panier ${index + 1}</span>
-                    <span class="btn-remove" onclick="removeItem('baskets.items', ${index})"><i class="fas fa-trash"></i> Supprimer</span>
-                </div>
-                <div class="form-group">
-                    <label>Nom</label>
-                    <input type="text" data-path="baskets.items.${index}.title" value="${escapeHtml(item.title)}">
-                </div>
-                <div class="form-group">
-                    <label>Prix</label>
-                    <input type="text" data-path="baskets.items.${index}.price" value="${escapeHtml(item.price)}">
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea data-path="baskets.items.${index}.description">${escapeHtml(item.description)}</textarea>
-                </div>
-            </div>
-        `;
-    });
-    basketsHtml += `<button class="btn btn-add" onclick="addItem('baskets.items')"><i class="fas fa-plus"></i> Ajouter un panier</button>`;
-    createSection('baskets', 'Paniers', basketsHtml);
-
-    // --- Recipes (With Images) ---
-    let recipesHtml = '';
-    data.recipes.items.forEach((item, index) => {
-        recipesHtml += `
-            <div class="item-card">
-                <div class="item-header">
-                    <span>Recette ${index + 1}</span>
-                    <span class="btn-remove" onclick="removeItem('recipes.items', ${index})"><i class="fas fa-trash"></i> Supprimer</span>
-                </div>
-                <div class="form-group">
-                    <label>Titre</label>
-                    <input type="text" data-path="recipes.items.${index}.title" value="${escapeHtml(item.title)}">
-                </div>
-                <div class="form-group">
-                    <label>Temps</label>
-                    <input type="text" data-path="recipes.items.${index}.time" value="${escapeHtml(item.time)}">
-                </div>
-                <div class="form-group">
-                    <label>Image</label>
-                    <div class="image-preview" onclick="triggerFileSelect('recipes.items.${index}.image')">
-                        <img src="${item.image}" id="img-preview-recipes.items.${index}.image">
-                        <span style="${item.image ? 'display:none' : ''}">Cliquez pour changer</span>
-                    </div>
-                    <input type="file" id="file-recipes.items.${index}.image" accept="image/*" onchange="handleImageUpload(this, 'recipes.items.${index}.image')">
-                </div>
-            </div>
-        `;
-    });
-    recipesHtml += `<button class="btn btn-add" onclick="addItem('recipes.items')"><i class="fas fa-plus"></i> Ajouter une recette</button>`;
-    createSection('recipes', 'Recettes', recipesHtml);
-
-
 }
 
 // 4. Data Binding & Live Update
@@ -191,7 +308,7 @@ function updatePreview() {
     }
 }
 
-// 5. Item Management (Add/Remove)
+// 5. Item Management (Add/Remove/Move)
 window.removeItem = (path, index) => {
     if (!confirm('Êtes-vous sûr de vouloir supprimer cet élément ?')) return;
 
@@ -222,11 +339,33 @@ window.addItem = (path) => {
             newItem = { title: "Nouveau Panier", price: "0€", description: "Description...", features: ["Option 1"] };
         } else if (path.includes('recipes')) {
             newItem = { title: "Nouvelle Recette", time: "0 min", image: "assets/images/basket.png" };
+        } else if (path.includes('products')) {
+            newItem = { title: "Nouveau Produit", description: "Description...", price: "Prix", icon: "fas fa-box" };
+        } else if (path.includes('about.features')) {
+            newItem = "Nouvel avantage";
         }
 
         current.push(newItem);
         renderEditor(currentData);
         updatePreview();
+    }
+};
+
+window.moveItem = (path, index, direction) => {
+    const keys = path.split('.');
+    let current = currentData;
+    for (let i = 0; i < keys.length; i++) {
+        current = current[keys[i]];
+    }
+
+    if (Array.isArray(current)) {
+        const newIndex = index + direction;
+        if (newIndex >= 0 && newIndex < current.length) {
+            const item = current.splice(index, 1)[0];
+            current.splice(newIndex, 0, item);
+            renderEditor(currentData);
+            updatePreview();
+        }
     }
 };
 
@@ -253,13 +392,31 @@ window.handleImageUpload = (input, path) => {
     reader.readAsDataURL(file);
 };
 
-// 7. Save Functionality (File System Access API)
+// 7. Save Functionality (Local Server + Fallback)
 async function setupSaveHandler() {
     saveBtn.addEventListener('click', async () => {
-        try {
-            // Generate JS content
-            const jsContent = `window.siteContent = ${JSON.stringify(currentData, null, 4)};`;
+        const jsContent = `window.siteContent = ${JSON.stringify(currentData, null, 4)};`;
 
+        try {
+            // 1. Try Local Server API
+            const response = await fetch('/api/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/javascript'
+                },
+                body: jsContent
+            });
+
+            if (response.ok) {
+                alert('Sauvegarde réussie (Serveur Local) !');
+                return;
+            }
+        } catch (e) {
+            console.log('Local server not available, falling back to file download/system API');
+        }
+
+        // 2. Fallback: File System Access API or Download
+        try {
             // Check if browser supports File System Access API
             if ('showSaveFilePicker' in window) {
                 try {
@@ -278,7 +435,7 @@ async function setupSaveHandler() {
                     const writable = await fileHandle.createWritable();
                     await writable.write(jsContent);
                     await writable.close();
-                    alert('Sauvegarde réussie !');
+                    alert('Sauvegarde réussie (Fichier) !');
                 } catch (err) {
                     // If user cancels or permission denied, reset handle and try download
                     if (err.name !== 'AbortError') {

@@ -24,21 +24,38 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
         <div class="container nav-container">
-            <a href="#" class="logo">Le Potager <span class="accent">de Coat Raden</span></a>
+            <!-- Left Links -->
+            <ul class="nav-links left-links">
+                <li><a href="#home">ACCUEIL</a></li>
+                <li><a href="#about">À PROPOS</a></li>
+                <li><a href="#baskets">NOS PANIERS</a></li>
+            </ul>
+
+            <!-- Center Logo -->
+            <div class="logo-container">
+                <a href="#">
+                    <img src="assets/images/logo.png" alt="Le Potager de Coat Raden" class="main-logo">
+                </a>
+            </div>
+
+            <!-- Right Links -->
+            <ul class="nav-links right-links">
+                <li><a href="#recipes">RECETTES</a></li>
+                <li><a href="#blog">LA FERME</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+
+
+
+            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#baskets">Paniers</a></li>
-                <li><a href="#recipes">Recettes</a></li>
-                <li><a href="#blog">La Ferme</a></li>
-                <li><a href="#contact" class="btn-primary">Nous Trouver</a></li>
-            </ul>
         </div>
     </nav>
 
@@ -250,6 +267,7 @@
                 <a href="#about">À Propos</a>
                 <a href="#products">Produits</a>
                 <a href="#contact">Contact</a>
+                <a href="#" id="admin-link">Administration</a>
             </div>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook"></i></a>

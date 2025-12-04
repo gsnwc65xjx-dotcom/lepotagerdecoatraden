@@ -1,4 +1,8 @@
 window.siteContent = {
+    "global": {
+        "siteTitle": "Le Potager de Coat Raden - Légumes de Saison",
+        "metaDescription": "Ferme maraîchère locale proposant des légumes de saison et des paniers frais à Coat Raden."
+    },
     "hero": {
         "title": "Des fruits et légumes frais,<br>du champ à l'assiette",
         "subtitle": "Découvrez le goût authentique de nos produits cultivés avec passion à Coat Raden.",
@@ -92,5 +96,8 @@ window.siteContent = {
             }
         ]
     },
-
+    "social": {
+        "title": "La Vie à la Ferme",
+        "subtitle": "Suivez notre actualité en direct sur Facebook."
+    }
 };
